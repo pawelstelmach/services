@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+  	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Opis filtrów SLA</title>
+    <link href="/stylesheets/application.css?1273474796" media="screen" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div id="container">
+        <h1>Opis filtrów SLA</h1>
+       
+        <h3>filtr exact match (oryginalny)</h3>
+        Jeden z filtrów z literatury. Wymaga przejrzenia pod względem dopasowania do wymaganego wejścia często prawie całego repozytorium. Nie wszystkie wymagania wejściowe muszą być uwzględnione w odnalezionej usłudze
+        <h3>filtr plug-in match(oryginalny)</h3>
+        Drugi z filtrów z literatury. Także wymaga przejrzenia często prawie całego repozytorium. Nie wszystkie wymagania wejściowe muszą być uwzględnione w odnalezionej usłudze. Dodatkowo parametry wejściowe usługi mogą być uogólnieniem parametrów wejściowych wymagania (uogólnienie dowolnego stopnia w ontologii dziedzinowej) 
+        <h3>filtr exact match (dokładny)</h3>
+        Skonstruowany w ITSOA. Usługi muszą mieć tą samą ilość (identycznych) parametrów wejściowych jak wymagane wejście
+        <h3>filtr plug-in match (dokładny)</h3>
+        Skonstruowany w ITSOA. Usługi muszą mieć tą samą ilość parametrów wejściowych jak w wymaganiu, jednak parametry wejściowe mogą być uogólnieniem parametrów wejściowych wymagania (ilość uogólnień jest ograniczona poprzez parametr podobieństwa semantycznego, który przekłada się na dopuszczalną odległość między konceptami opisującymi parametry usługi w ontologii dziedzinowej)
+        <h3>filtr exact match (przybliżony)</h3>
+        Skonstruowany w ITSOA. Usługi mogą mieć więcej parametrów wejściowych niż było wymagane, jednak musi istnieć taki podzbiór parametrów wejściowych w usłudze, że są one identyczne z wymaganymi. (interpretacja podejścia: dopuszczamy większą ilość wejść usługi niż wymagane, gdyż zakładamy iż użytkownik mógł nie podać wszystkich danych wejściowych, którymi dysponuje, a jedynie to, czego wymaga)
+        <h3>filtr plug-in match (przybliżony)</h3>
+        Skonstruowany w ITSOA. Usługi mogą mieć więcej wejść niż było wymagane, jednak musi istnieć taki podzbiór parametrów wejściowych w usłudze, że te parametry wejściowe są uogólnieniem parametrów wejściowych wymagania (ilość uogólnień jest ograniczona poprzez parametr podobieństwa semantycznego, który przekłada się na dopuszczalną odległość między konceptami w ontologii dziedzinowej) (interpretacja dopuszczania większej ilości parametrów wejściowych w usłudze niż wymagane – jak wyżej)
+        
+    </div>
+  </body>
+</html>

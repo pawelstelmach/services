@@ -1,0 +1,117 @@
+<% title "Usługi" %>
+
+<div id="pokaz_kompozycje">
+	<h2><%= link_to "Jak zarządzać usługami w repozytorium?", "#", :id => "toogle_tutorial", :style => "text-decoration:none; color: #000000;" %></h2>
+	<div id="tutorial" style="text-align:center;"></div>
+</div>
+<br/>
+
+<div style="width:100%;margin-bottom:10px;text-align:right;">
+	<%= link_to "Testuj repozytorium usług", "#", :id => "toogle_params_test" %>
+</div>
+<div id="hid_params_test">
+<table style="width:100%">
+  <tr>
+    <th>Pojedyncze wywołanie</th>
+    <th>Wielokrotne wywołanie</th>
+  </tr>
+  <tr>
+    <td><span style="font-size:9px">(efektem jest znalezienie zbioru usług spełniających dane wymaganie i posortowanych pod względem dopasowania do tego wymagania)</span></td>
+    <td><span style="font-size:9px">(efektem jest wielokrotne wywołanie wielu filtrów na specjalnie wygenerowanych repozytoriach usług o różnej ilości usług relewantnych dla zapytania - test umożliwia porównanie czasów działania filtrów)</span></td>
+  </tr>
+  <tr>
+  <td style="width:50%">
+    <% form_tag testuj_wybrane_services_path do |f| %>
+    Wejście: <%= text_field_tag :input, "klient panstwowy, usluga glosowa" %><br/>
+    Wyjście: <%= text_field_tag :output, "sugerowana, usluga glosowa" %><br/>
+    Stopień podobieństwa: <%= text_field_tag :podobienstwo, "0.6" %><br/>
+    <span style="font-size:9px">Jest to dopuszczalny (minimalny) stopień podobieństwa pomiędzy konceptami wymagań.</span><br/>
+    <%= check_box_tag "e1" %> filtr exact match (oryginalny)<br/>
+    <%= check_box_tag "p1" %> filtr plug-in match (oryginalny)<br/>
+    <%= check_box_tag "e2" %> filtr exact match (dokładny)<br/>
+    <%= check_box_tag "p2" %> filtr plug-in match (dokładny)<br/>
+    <%= check_box_tag "e3" %> filtr exact match (przybliżony)<br/>
+    <%= check_box_tag "p3" %> filtr plug-in match (przybliżony)<br/>
+    <%= link_to "Pokaż opisy filtrów", "/filtry.html" %><br/>
+    <%= submit_tag "Testuj zaznaczone filtry" %>
+    <% end %>
+  </td>
+  <td>
+    <% form_tag testuj_wielokrotnie_filtry_services_path do |f| %>
+    Wejście: <%= text_field_tag :input, "klient panstwowy, usluga glosowa" %><br/>
+    Wyjście: <%= text_field_tag :output, "sugerowana, usluga glosowa" %><br/>
+    Stopień podobieństwa: <%= text_field_tag :podobienstwo, "0.6" %>
+    <span style="font-size:9px">Jest to dopuszczalny (minimalny) stopień podobieństwa pomiędzy konceptami wymagań.</span><br/>   
+    Ilość usług relewantnych zwracanych przez filtry (%):<br/><%= text_field_tag :r, "(5..20).step(5)" %><br/>
+    Wielkość repozytorium usług:<br/><%= text_field_tag :n, "(200..1000).step(200)" %><br/>
+    <span style="font-size:9px">(czas wykonania testów istotnie zależy od generowania repozytoriów spełniających powyższe wymagania)</span><br/>
+    <%= radio_button_tag "typ", "exact", true %> exact match<br/>
+    <%= radio_button_tag "typ", "plugin" %> plugin match<br/>
+    <%= submit_tag "Testuj" %>
+    <% end %>
+  </td>
+  </tr>
+</table>
+<hr style="margin-bottom:10px;margin-top:-30px;"/>
+</div>
+
+<% if @services.size == 100 %>
+  Showing first 100 from total <%= Service.count %> services<br/>
+<% end %>
+
+<%= link_to 'Dodaj usługę', new_service_path %> | <%= link_to 'Zarządzaj opiniami o usługach', opinions_path, :target => :blank %> 
+<div style="float:right;margin-bottom:10px;text-align:right;">
+<%= link_to "Importuj z csv", "#", :id => "toogle_params" %>
+<div id="hid_params">
+<% form_tag parse_csv_services_path do %>
+<br/>
+  <%= text_area_tag :csv %>
+  <%= submit_tag "Parsuj" %>
+<% end %>
+</div>
+</div>
+<table>
+  <tr>
+    <th><label>ID</label></th>
+    <th><label>Nazwa</label></th>
+    <th><label title="Pole input zawiera parametry usługi, które są przekazywane na wejściu">Input</label></th>
+    <th><label title="Pole output zawiera parametry usługi, które są przekazywane na wyjściu">Output</label></th>
+	<th style="min-width:20%"><label>Opcje</label></th>
+  </tr>
+
+<% @services.each do |service| %>
+  <tr>
+    <td><%= service.id %>
+    <td><%=h service.name %></td>
+    <td><%=h service.input %></td>
+    <td><%=h service.output %></td>
+    <td><%= link_to 'Pokaż', service %> | <%= link_to 'Edytuj', edit_service_path(service) %> | <%= link_to 'Usuń', service, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+<br />
+<%= javascript_tag("
+     $j(document).ready(function() {
+        $j('#hid_params_test').hide();
+		$j('#hid_params').hide();
+		$j('a#toogle_params_test').click(function() {
+          $j('#hid_params_test').slideToggle(400);
+          return false;
+        });
+        $j('a#toogle_params').click(function() {
+          $j('#hid_params').slideToggle(400);
+          return false;
+        });
+      });
+") %>
+
+<%= javascript_tag("
+     $j(document).ready(function() {
+        $j('#tutorial').hide();
+		new Ajax.Updater('tutorial', '/pages/get_photo/0/Services', {asynchronous:true, evalScripts:true, parameters:'authenticity_token=' + encodeURIComponent('r4Zxnv4m0jgTfZpMqpoj44hFkzxsmNd/8rRcGbkfoVw=')})
+        $j('a#toogle_tutorial').click(function() {
+		$j('#tutorial').slideToggle(400);
+		  return false;
+        });
+      });
+") %>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  from_id: 1
+  to_id: 1
+  length: 1.5
+
+two:
+  from_id: 1
+  to_id: 1
+  length: 1.5

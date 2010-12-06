@@ -1,0 +1,11 @@
+%h1 Editing concept
+= link_to 'Pokaż', @concept
+
+- semantic_form_for(@concept) do |f|
+  = f.error_messages
+  - f.inputs do
+    = f.input :name, :label => "Nazwa"
+    %br
+    = f.input :parents, :label => "Rodzice"
+  %br
+  = f.buttons

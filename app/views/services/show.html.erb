@@ -1,0 +1,31 @@
+<h1>Edycja usługi <%=h @service.name %></h1>
+<%= link_to 'Edytuj', edit_service_path(@service) %>
+<p>
+  <b>Nazwa:</b>
+  <%=h @service.name %>
+</p>
+
+<p>
+  <b>Opis:</b>
+  <%=h @service.description %>
+</p>
+
+<p>
+  <b>Input:</b>
+  <%=h @service.input %>
+</p>
+
+<p>
+  <b>Output:</b>
+  <%=h @service.output %>
+</p>
+
+<p>
+  <b>QOS:</b><br/>
+  Cost: <%= @service.cost %><br/>
+  Time: <%= @service.response_time %><br/>
+  Availability: <%= @service.availability %><br/>
+  Succesful: <%= @service.succesful %><br/>
+  Reputation: <%= @service.reputation %><br/>
+  Frequency: <%= @service.frequency %>
+</p>

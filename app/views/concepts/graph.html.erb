@@ -1,0 +1,7 @@
+digraph ontology {
+  <%- @concepts.each do |c| -%>
+    <%- c.parents.each do |p| -%>
+      "<%= p.name %>" -> "<%= c.name %>";
+    <%- end -%>
+  <%- end -%>
+}

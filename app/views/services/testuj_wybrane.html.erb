@@ -1,0 +1,17 @@
+<h1>Wyniki</h1>
+<% @data.each do |filtr| %>
+  Ilość: <%= filtr.size %><br/>
+  <ul>
+    <% filtr.each do |as| %>
+    <li>
+      <b>(<%= as.id %>) <%= as.name %></b><br/>
+      Input: <%= as.input %><br/>
+      Output: <%= as.output %><br/>
+      Dopasowanie: <%= as.dopasowanie_do( params ) %><br/>
+      Czas: <%= as.response_time %><br/>
+      Koszt: <%= as.cost %>
+    </li>
+    <% end %>
+  </ul>
+  <hr/>
+<% end %>

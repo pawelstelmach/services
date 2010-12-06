@@ -1,0 +1,18 @@
+znajdz_pod_kl;2:pobierz_typ_klienta(10%),4:znajdz_klientow_podobnych(40%);klient;klient, podobny;3;16
+znajdz_pod_kl_panstw;2:pobierz_typ_klienta(10%),2:znajdz_klientow_podobnych(20%);klient panstwowy;klient panstwowy, podobny;3;4
+znajdz_pod_kl_publicz;2:pobierz_typ_klienta(10%),3:znajdz_klientow_podobnych(30%);klient publiczny;klient publiczny, podobny;3;14
+znajdz_us_dop_kl;3:grupuj_klientow(50%),3:znajdz_uslugi_dopasowane(30%);klient;usluga, dopasowana;3;12
+znajdz_us_glos_dop_kl_panstw;2:grupuj_klientow(35%),2:znajdz_uslugi_dopasowane(15%);klient panstwowy;usluga glosowa, dopasowana;3;3
+znajdz_us_glos_dop_kl_pub;2:grupuj_klientow(35%),2:znajdz_uslugi_dopasowane(15%);klient publiczny;usluga glosowa, dopasowana;4;11
+sugeruj_us_panstw;2:pobierz_typ_klienta(10%),2:wybierz_usluge(30%);usluga glosowa, klient panstwowy;usluga glosowa, sugerowana;2;3
+sugeruj_us_glos_kl_organ;2:pobierz_typ_klienta(15%),3:wybierz_usluge(30%);usluga glosowa, organizacja;usluga glosowa, sugerowana;5;8
+sugeruj_us_glos_kl_publicz;2:pobierz_typ_klienta(10%),4:wybierz_usluge(30%);usluga, klient publiczny;usluga, sugerowana;7;12
+sugeruj_us_kl_organ;2:pobierz_typ_klienta(20%),4:wybierz_usluge(30%);usluga, organizacja;usluga, sugerowana;10;14
+sugeruj_us_kl;1:pobierz_typ_klienta(30%),5:wybierz_usluge(30%);klient, usluga glosowa;usluga glosowa, sugerowana;4;3
+sugeruj_us_os_pryw;2:pobierz_typ_klienta(15%),4:wybierz_usluge(30%);osoba prywatna, usluga;usluga, sugerowana;2;3
+podaj_akc_glos_general;2:wyslij_zapytanie(20%),3:czekaj_na_akceptacje(5%),1:potwierdz(10%);usluga;usluga glosowa, wybrana;4;11
+podaj_akc_glos;2:wyslij_zapytanie(20%),3:czekaj_na_akceptacje(5%),1:potwierdz(10%);usluga glosowa;usluga glosowa, wybrana;2;5
+podaj_akc_usl;2:wyslij_zapytanie(20%),3:czekaj_na_akceptacje(5%),1:potwierdz(10%);usluga;usluga, wybrana;5;14
+zamow_urz;3:pobierz_urzadzenie(80%),2:inicjuj_instalacje(90%);usluga;urzadzenie, instalacja urzadzenia;5;6
+zamow_urz_glos;3:pobierz_urzadzenie(80%),2:inicjuj_instalacje(90%);usluga glosowa;urzadzenie stacjonarne, instalacja urzadzenia;1;2
+zamow_urz_radio_tel;3:pobierz_urzadzenie(80%),2:inicjuj_instalacje(90%);usluga glosowa;urzadzenie radio-telefoniczne, instalacja urzadzenia;2;4

@@ -1,0 +1,35 @@
+znajdz potencjalnego klienta panstwowego;;klient panstwowy, potencjalny;3;12
+znajdz potencjalnego klienta;;klient, potencjalny;5;30
+znajdz potencjalnego klienta z organizacji;;organizacja, potencjalny;3;20
+znajdz potencjalnego klienta publicznego;;klient publiczny, potencjalny;5;15
+pobierz wszystkich klientow;;klient;8;25
+pobierz wszystkich klientow panstwowych;;klient panstwowy;5;24
+znajdz podobnego klienta;klient;klient, podobny;3;16
+znajdz podobnego klienta panstwowego;klient panstwowy;klient panstwowy, podobny;3;10
+znajdz podobnego klienta z organizacji;organizacja;organizacja, podobny;4;10
+znajdz podobnego klienta;klient publiczny;klient panstwowy, podobny;3;14
+klienci odwiedzajacy witryne www;osoba;klient, potencjalny;1;5
+znajdz klientow sluzb mundurowych korzystajacych z uslugi glosowej;klient sluzb mundurowych, usluga glosowa;klient;2;5
+znajdz usluge dopasowana do klienta;klient;usluga, dopasowana;3;12
+znajdz usluge glosowa dopasowana do klienta panstwowego;klient panstwowy;usluga glosowa, dopasowana;3;8
+znajdz usluge dopasowana do klienta panstwowego;klient panstwowy;usluga, dopasowana;4;9
+znajdz usluge dopasowana do klienta z organizacji;organizacja;usluga, dopasowana;6;6
+znajdz usluge glosowa dopasowana do klienta;klient;usluga glosowa, dopasowana;4;11
+znajdz usluge uzywana przez klienta;klient;usluga, uzywana;6;16
+sugeruj_us_panstw;usluga glosowa, klient panstwowy;usluga glosowa, sugerowana;2;3
+sugeruj usluge glosowa dla klienta z organizacji;usluga glosowa, organizacja;usluga glosowa, sugerowana;5;8
+wybierz najlepsza usluge glosowa;usluga;usluga glosowa, sugerowana;8;15
+sugeruj usluge glosowa dla TK;TK;usluga glosowa, sugerowana;7;11
+sugeruj usluge glosowa dla klienta publicznego;usluga, klient publiczny;usluga, sugerowana;7;12
+umozliw klientowi wybor uslugi;klient;usluga glosowa, wybrana;4;2
+umozliw klientowi panstwowemu wybor uslugi;klient panstwowy;usluga, wybrana;5;9
+sugeruj usluge dla osoby prywatnej;osoba prywatna;usluga, sugerowana;2;5
+sugeruj usluge dla osoby prywatnej - z listy uslug;osoba prywatna, usluga;usluga, sugerowana;4;3
+sugeruj usluge dla organizacji;organizacja;usluga, sugerowana;4;11
+sugeruj usluge dla sluzb mundurowych;klient sluzb mundurowych;usluga, sugerowana;3;6
+z uslug podaje usluge glosowa wybrana lub zaakceptowana przez uzytkownika;usluga;usluga glosowa, wybrana;4;11
+podaj_akc_glos;usluga glosowa;usluga glosowa, wybrana;2;5
+z uslug podaje usluge wybrana lub zaakceptowana przez uzytkownika;usluga;usluga, wybrana;5;14
+wybiera urzadzenie do instalacji dla wybranej uslugi;usluga;urzadzenie;4;8
+zamow_urz_glos;usluga glosowa;urzadzenie stacjonarne, instalacja urzadzenia;1;2
+zamawia instalacje urzadzenia radio-telefonicznego dla uslugi glosowej;usluga glosowa;urzadzenie radio-telefoniczne, instalacja urzadzenia;2;4

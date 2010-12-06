@@ -1,0 +1,22 @@
+<h1>Koncept <%=h @concept.name %></h1>
+<%= link_to 'Edycja', edit_concept_path(@concept) %>
+
+<p>
+  <b>Nazwa:</b>
+  <%=h @concept.name %>
+</p>
+
+<p>
+  <b>Rodzice:</b>
+  <%=h @concept.parents.join(',') %>
+</p>
+
+<p>
+  <b>Meta in:</b>
+  <%=h @concept.meta_in.collect{ |s| Service.find(s).name }.join(', ') %>
+</p>
+
+<p>
+  <b>Meta out:</b>
+  <%=h @concept.meta_out.collect{ |s| Service.find(s).name }.join(', ') %>
+</p>

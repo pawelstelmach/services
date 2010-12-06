@@ -1,0 +1,63 @@
+<% title "Ontologia" %>
+
+<div id="pokaz_kompozycje">
+	<h2><%= link_to "Jak korzystać z ontologii?", "#", :id => "toogle_tutorial", :style => "text-decoration:none; color: #000000;" %></h2>
+	<div id="tutorial" style="text-align:center;"></div>
+</div>
+<br/>
+
+<p>
+	Poniżej znajdują się koncepty tworzące ontologię. Pole rodzic definiuje między jakimi konceptami zachodzi relacja "is a" (uogólnienia). Pola Meta in oraz Meta out służą do odwrotnego indeksowania i wskazują, które usługi korzystają z danego konceput do opisu odpowiednio: parametrów wejściowych (Meta in) i parametrów wyjściowych (Meta out).
+</p>
+<%= link_to 'Dodaj koncept', new_concept_path %>
+<div style="float:right;margin-bottom:10px;text-align:right;">
+<%= link_to 'Aktualizuj ontologię', refresh_meta_concepts_path %>
+<%= link_to "Importuj z csv", "#", :id => "toogle_params" %>
+<div id="hid_params">
+<% form_tag parse_csv_concepts_path do %>
+<br/>
+  <%= text_area_tag :csv %>
+  <%= submit_tag "Parsuj", :style => "margin-bottom:10px;"%>
+</div>
+</div>
+<table>
+  <tr>
+    <th><label>ID</label></th>
+    <th><label>Nazwa</label></th>
+    <th><label>Rodzic</label></th>
+    <th><label>Meta in</label></th>
+    <th><label>Meta out</label></th>s
+	<th style="min-width:20%"><label>Opcje</label></th>
+  </tr>
+  <% @concepts.each do |concept| %>
+  <tr style="background-color:#<%= cycle("FFF", "EEE") %>">
+    <td><%=h concept.id %></td>
+    <td><%=h concept.name %></td>
+    <td><%=h concept.parents.join(', ') %></td>
+    <td><%=h concept.meta_in[0,10].collect{ |s| Service.find(s).name }.join(', ') %><%= " ... total #{concept.meta_in.size}" if concept.meta_in.size > 10 %></td>
+    <td><%=h concept.meta_out[0,10].collect{ |s| Service.find(s).name }.join(', ') %><%= " ... total #{concept.meta_out.size}" if concept.meta_out.size > 10 %></td>
+    <td><%= link_to 'Pokaż', concept %> | <%= link_to 'Edytuj', edit_concept_path(concept) %> | <%= link_to 'Usuń', concept, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+<br />
+<% end %>
+<%= javascript_tag("
+     $j(document).ready(function() {
+        $j('#hid_params').hide();
+        $j('a#toogle_params').click(function() {
+          $j('#hid_params').slideToggle(400);
+          return false;
+        });
+      });
+") %>
+<%= javascript_tag("
+     $j(document).ready(function() {
+        $j('#tutorial').hide();
+		new Ajax.Updater('tutorial', '/pages/get_photo/0/Ontology', {asynchronous:true, evalScripts:true, parameters:'authenticity_token=' + encodeURIComponent('r4Zxnv4m0jgTfZpMqpoj44hFkzxsmNd/8rRcGbkfoVw=')})
+        $j('a#toogle_tutorial').click(function() {
+		$j('#tutorial').slideToggle(400);
+		  return false;
+        });
+      });
+") %>

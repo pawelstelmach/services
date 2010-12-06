@@ -1,0 +1,64 @@
+/* -------------------------------------------------------------------------------------------------
+
+Load this stylesheet after formtastic.css in your layouts to override the CSS to suit your needs.
+This will allow you to update formtastic.css with new releases without clobbering your own changes.
+
+For example, to make the inline hint paragraphs a little darker in color than the standard #666:
+
+form.formtastic fieldset ol li p.inline-hints { color:#333; }
+
+--------------------------------------------------------------------------------------------------*/
+form.formtastic fieldset ol li p.inline-hints {	font-size:9px; color:#888; }
+form.formtastic fieldset.inputs { border:1px solid #DDD; padding: 10px 10px 0 10px; margin-bottom:15px; }
+form.formtastic fieldset.inputs legend { padding: 0 10px; font-weight:bold; }
+form.formtastic fieldset.experiment_name ol li label { display:block; width:6%; float:left; padding: 10px 10px 0 10px; margin-bottom:15px; border:none}
+form.formtastic fieldset.experiment_name ol li input { display:block; width:87%; float:right; margin: 10px 10px 15px 10px;}
+
+
+form.formtastic fieldset.simple_input { margin: 0 0 0 0; padding: 0 0 0 0; }
+form.formtastic fieldset.simple_input ol li label { width: 0px; display:none; margin: 0 0 0 0; padding: 0 0 0 0;}
+form.formtastic fieldset.simple_input ol li input { width: 100%; margin: 0 0 0 0; padding: 0 0 0 0;}
+form.formtastic fieldset.simple_input ol li { margin: 0 0 0 0; padding: 0 0 0 0; }
+form.formtastic fieldset.simple_input ol { margin: 0 0 0 0; padding: 0 0 0 0; }
+
+form.formtastic fieldset.inputs ol div.fieldset_left_narrow #experiment_sla_input label {width:30%;}
+
+form.formtastic fieldset legend.label { display:none;}
+form.formtastic fieldset ol li label.visibility { display:inline;}
+
+form.formtastic fieldset.radio_buttons { padding: 0 0 0 0; margin: 0 0 0 0 }
+form.formtastic fieldset.radio_buttons ol li.radio { margin: 0 0 0 0; padding: 0 0 0 0; }
+
+
+form.formtastic fieldset.radio_buttons ol li.radio fieldset { display:inline; margin: 0 0 0 0; padding: 0 0 0 0;}
+form.formtastic fieldset.radio_buttons ol li.radio fieldset ol { margin: -0.3em 0 -1.5em 0; padding: 0 0 0 0; }
+form.formtastic fieldset.radio_buttons ol li.radio fieldset ol li { float:left; margin:0 0 0.1em 0; padding: 0 0 0 0;}
+
+form.formtastic fieldset.buttons li { float:left; padding-right:0.5em; }
+form.formtastic fieldset.buttons { padding-left: 0; margin: 10px 0px 10px 0px; }
+
+form.formtastic fieldset.buttons li input {
+ padding: 0.1em 0.1em;
+ margin: 0.2em 0 0.2em 0;
+ color: #000;
+ background-color: transparent;
+ background-image: url(../images/tab.jpg);
+ background-repeat: repeat-x; 
+  	border-top: 1px solid #CCCCCC;
+ 	border-right: 1px solid #333333;
+ 	border-bottom: 1px solid #333333;
+ 	border-left: 1px solid #CCCCCC;
+}
+
+form.formtastic fieldset.buttons li input:hover {
+    padding: 0.1em 0.1em;
+	margin: 0.2em 0 0.2em 0;
+ 	color: #000;
+ 	background-color: transparent;
+ 	background-image: url(../images/tab_darker.jpg);
+ 	background-repeat: repeat-x; 
+ 	border-top: 1px solid #CCCCCC;
+ 	border-right: 1px solid #333333;
+ 	border-bottom: 1px solid #333333;
+ 	border-left: 1px solid #CCCCCC;
+}

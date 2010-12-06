@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  parent_id: 1
+  meta_in: MyText
+  meta_out: MyText
+
+two:
+  name: MyString
+  parent_id: 1
+  meta_in: MyText
+  meta_out: MyText

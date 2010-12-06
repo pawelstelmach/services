@@ -1,0 +1,28 @@
+<h1>Edycja usługi</h1>
+
+<%= link_to 'Pokaż', @service %> |
+
+<% form_for(@service) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.label :input %><br />
+    <%= f.text_field :input %>
+  </p>
+  <p>
+    <%= f.label :output %><br />
+    <%= f.text_field :output %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+

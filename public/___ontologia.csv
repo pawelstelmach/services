@@ -1,0 +1,52 @@
+koncept;koncept-rodzic
+TK;
+usluga;TK
+rodzaj uslugi;TK
+sugerowana;rodzaj uslugi
+dopasowana;rodzaj uslugi
+uzywana;rodzaj uslugi
+wybrana;rodzaj uslugi
+usluga dostepu do internetu;usluga
+usluga glosowa;usluga
+usluga transmisji danych;usluga
+usluga wartosci dodanej;usluga
+instalacja urzadzenia;usluga wartosci dodanej
+naprawa urzadzen telefonicznych;usluga glosowa
+dzierzawa urzadzen telefonicznych;usluga glosowa
+polaczenie;usluga glosowa
+instalacja urzadzen telefonicznych;usluga glosowa
+polaczenie komorkowe;polaczenie
+polaczenie stacjonarne;polaczenie
+polaczenie ToIP;polaczenie
+polaczenie krajowe;polaczenie
+polaczenie miedzynarodowe;polaczenie
+osoba;TK
+rodzaj kienta;TK
+podobny;rodzaj kienta
+potencjalny;rodzaj kienta
+pracownik;osoba
+klient;osoba
+handlowiec;pracownik
+klient obslugiwany;klient
+klient nieobslugiwany;klient
+klient z umowa;klient obslugiwany
+klient bez umowy;klient obslugiwany
+klient fakturowany;klient z umowa
+osoba prywatna;klient
+organizacja;klient
+klient publiczny;organizacja
+klient niepubliczny;organizacja
+klient wydzielonego segmentu;organizacja
+klient administracji publicznej;klient wydzielonego segmentu
+klient sluzb mundurowych;klient wydzielonego segmentu
+klient panstwowy;klient publiczny
+klient samorzadowy;klient publiczny
+urzadzenie;TK
+urzadzenie telefoniczne;urzadzenie
+urzadzenie internetowe;urzadzenie
+urzadzenie transmisji danych;urzadzenie
+urzadzenie radio-telefoniczne;urzadzenie
+urzadzenie telefoniczne koncowe;urzadzenie telefoniczne
+urzadzenie przenosne;urzadzenie radio-telefoniczne
+urzadzenie stacjonarne;urzadzenie radio-telefoniczne
+urzadzenie przewozne;urzadzenie radio-telefoniczne

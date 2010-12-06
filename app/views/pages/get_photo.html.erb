@@ -1,0 +1,13 @@
+<div id="tutorial" style="text-align:center;height:100%;">
+	<div style="text-align:center;">
+	<%= link_to image_tag("/images/arrow_first.png"), "javascript:void(0)", :onclick => remote_function(:update => "tutorial", :url => { :controller => "pages", :action => "get_photo", :id => @first, :site => @site } ), :style => "padding:5px 5px 5px 5px;" unless @current == @first %>
+    <%= link_to image_tag("/images/arrow_prev.png"), "javascript:void(0)", :onclick => remote_function(:update => "tutorial", :url => { :controller => "pages", :action => "get_photo", :id => @prev, :site => @site } ), :style => "padding:5px 15px 5px 5px;" unless @current == @first %>
+    
+	<%= link_to image_tag("/images/arrow_next.png"), "javascript:void(0)", :onclick => remote_function(:update => "tutorial", :url => { :controller => "pages", :action => "get_photo", :id => @next, :site => @site } ), :style => "padding:5px 5px 5px 15px;" unless @current == @last %>  
+	<%= link_to image_tag("/images/arrow_last.png"), "javascript:void(0)", :onclick => remote_function(:update => "tutorial", :url => { :controller => "pages", :action => "get_photo", :id => @last, :site => @site } ), :style => "padding:5px 5px 5px 5px;" unless @current == @last %>
+    </div>
+	<br />
+	<%= link_to image_tag("/images/"+@site+"/"+@image)%>
+	<br />
+	<br />
+</div>

@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title><%= h(yield(:title) || "Uslugi") %></title>
+    <%= stylesheet_link_tag 'application', 'formtastic', 'formtastic_changes' %>
+	        <%= javascript_include_tag :all %>
+		<script>$j = jQuery.noConflict();</script>
+    <%= yield(:head) %>
+  </head>
+      <body id="<%= @page_id %>">
+    	<div id="user_data">
+    	Zalogowany jako: user (<%= link_to "wyloguj" %>)
+   	</div>
+	<div id="logo">	
+       <%= link_to image_tag("/images/logo.jpg"), home_path %>
+	</div>
+    <div id="tab_container">
+ 	<ul id="tabs">
+    <li id="selected_experiment" class="<%= @page_id == "selected_experiment" ? "tab_selected" : "tab_not_selected" %>">
+		<%= link_to (session[:experiment] ? session[:experiment][:name] : "Ostatnia kompozycja"), 
+			session[:experiment] ? experiment_link(session[:experiment]) : "http://#{APP_CONFIG['gui_url']}/experiments/last" %>
+	</li>
+ 	<li id="experiments" class="<%= @page_id == "experiments" ? "tab_selected" : "tab_not_selected" %>">
+ 		<%= link_to "Kompozycje", experiments_path %>
+		</li>
+ 	<li id="slas" class="<%= @page_id == "slas" ? "tab_selected" : "tab_not_selected" %>">
+ 		<%= link_to "Wymagania", slas_path %>
+		</li>
+ 	<li id="services" class="<%= @page_id == "services" ? "tab_selected" : "tab_not_selected" %>">
+ 		<%= link_to "Usługi", services_path %>
+		</li>
+ 	<li id="concepts" class="<%= @page_id == "concepts" ? "tab_selected" : "tab_not_selected" %>">
+ 		<%= link_to "Ontologia", concepts_path %>
+		</li>
+	<li id="settings" class="<%= @page_id == "settings" ? "tab_selected" : "tab_not_selected" %>" style="float:right; padding: 0 0.1em 0 0.1em;">
+		<%= link_to "Ustawienia", settings_path %>
+	</li>
+	</ul> 
+	</div>
+    <div id="container">
+      <%- flash.each do |name, msg| -%>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+      <%- end -%>
+      
+        <h1></h1>
+      
+      <%= yield %>
+    </div>
+  </body>
+</html>

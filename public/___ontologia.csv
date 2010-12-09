@@ -1,5 +1,13 @@
-koncept;koncept-rodzic
-TK;
+TK;Root
+Liczby;Root
+Dzialania;Root
+Real;Liczby
+Real2;Real
+Integer;Real2
+Sumowanie;Dzialania
+Mnozenie;Dzialania
+Odejmowanie;Dzialania
+Potegowanie;Dzialania
 usluga;TK
 rodzaj uslugi;TK
 sugerowana;rodzaj uslugi

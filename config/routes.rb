@@ -21,7 +21,8 @@ ActionController::Routing::Routes.draw do |map|
 		:exact_match_2 => :get,
 		:plugin_2 => :get,
 		:exact_match_3 => :get,
-		:plugin_3 => :get
+		:plugin_3 => :get,
+    :plugin_math_services => :get
 	}
 
 

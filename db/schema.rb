@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101109211555) do
+ActiveRecord::Schema.define(:version => 20101207001431) do
 
   create_table "concept_edges", :force => true do |t|
     t.integer  "from_id"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(:version => 20101109211555) do
     t.float    "succesful"
     t.float    "reputation"
     t.float    "frequency"
+    t.string   "service_class"
   end
 
 end

@@ -3,10 +3,11 @@ class ServicesController < ApplicationController
   def parse_csv
 		Service.delete_all
 		params[:csv].each_line do |line|
-			s_name, s_desc, s_in, s_out, s_cost, s_time = line.strip.split(';')
+			s_name, s_class, s_desc, s_in, s_out, s_cost, s_time = line.strip.split(';')
 			1.times do
 				Service.create!( 
 					:name => s_name,
+          :service_class => s_class,
 					:description => s_desc,
 					:input => s_in.split(',').map{ |t| t.strip }.sort.join(','),
 					:output => s_out.split(',').map{ |t| t.strip }.sort.join(','),
@@ -47,6 +48,7 @@ class ServicesController < ApplicationController
 		plugin_2
 		exact_match_3
 		plugin_3
+    plugin_math_services
 		render :text => @data
 	end
 	
@@ -219,9 +221,9 @@ class ServicesController < ApplicationController
 		end
 	end
 	
-	def search
-		@services = Service.find( :all, :conditions => { :input => params[:input], :output => params[:output] }, :limit => params[:limit], :order => params[:order] )
-		render :xml => @services.to_xml
+	def search 
+		@services = Service.find( :all, :conditions => { :input => params[:input], :output => params[:output], :service_class => params[:service_class] }, :limit => params[:limit], :order => params[:order] )
+    render :xml => @services.to_xml
 	end
 	
 	def exact_match #OK
@@ -250,7 +252,16 @@ class ServicesController < ApplicationController
 		@services = simple_find(:output).select { |as| as.input.split(',') == r }
 		# TODO miara
 		render_services
-	end
+  end
+
+  #dodać obsługę!!
+  def plugin_math_services
+    r = params[:input].split(',')
+    #@services = ( simple_find(:output, params[:podobienstwo]) & onto_find(:input, params[:podobienstwo]) ).select { |as| as.input.split(',').size == r.size }
+    @services = ( simple_find(:output) & onto_find(:input, params[:podobienstwo]) ).select { |as| as.input.split(',').size == r.size }    
+    # TODO miara
+    render_services
+  end
 	
 	def plugin_2 #OK
 		r = params[:input].split(',')
@@ -274,7 +285,8 @@ class ServicesController < ApplicationController
 	def simple_find( in_out )
 		meta = (in_out == :input) ? :meta_in : :meta_out
 		ids = params[in_out].split(',').collect{ |c| Concept.find_by_name( c ) }.map(&meta).inject{ |memo,el| memo & el }
-		Service.find( ids, :order => params[:order] )
+		#Service.find( ids, :order => params[:order] )
+    Service.find( :all, :conditions => { :id => ids, :service_class => params[:service_class]}, :order => params[:order] )
 	end
 	
 	def onto_find( in_out, distance, plugin_1=false )
@@ -287,7 +299,8 @@ class ServicesController < ApplicationController
 		end
 		# debugger
 		ids = ids.inject{ |memo,el| memo & el } # [[A,B,C],[C,A,D],[D,C]] => [[C]]
-		s = Service.find( ids, :order => params[:order] )
+		#s = Service.find( ids, :order => params[:order] )
+    s = Service.find( :all, :conditions => { :id => ids, :service_class => params[:service_class]}, :order => params[:order] )
 		unless plugin_1
 			otoczenie_wymagania = concepts.map{ |c| c.pobierz_rodzicow_sem( distance ) }.flatten
 			s = s.reject do |as|

@@ -74,6 +74,7 @@
   <tr>
     <th><label>ID</label></th>
     <th><label>Nazwa</label></th>
+	<th><label>Klasa</label></th>
     <th><label title="Pole input zawiera parametry usługi, które są przekazywane na wejściu">Input</label></th>
     <th><label title="Pole output zawiera parametry usługi, które są przekazywane na wyjściu">Output</label></th>
 	<th style="min-width:20%"><label>Opcje</label></th>
@@ -83,6 +84,7 @@
   <tr>
     <td><%= service.id %>
     <td><%=h service.name %></td>
+	<td><%=h service.service_class %></td>
     <td><%=h service.input %></td>
     <td><%=h service.output %></td>
     <td><%= link_to 'Pokaż', service %> | <%= link_to 'Edytuj', edit_service_path(service) %> | <%= link_to 'Usuń', service, :confirm => 'Are you sure?', :method => :delete %></td>

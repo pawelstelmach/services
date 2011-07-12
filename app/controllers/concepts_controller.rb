@@ -1,4 +1,8 @@
 class ConceptsController < ApplicationController
+  before_filter :require_user, :only => [:graph, :refresh_meta, :refresh_meta_in_background, :parse_csv]
+  before_filter(:only => [:index, :show, :new, :create, :edit, :update, :destroy]) do |controller|
+   controller.send(:require_user) unless controller.request.format.xml?
+  end
 
 	def graph
 		@concepts = Concept.all
@@ -37,7 +41,20 @@ class ConceptsController < ApplicationController
   # GET /concepts.xml
   def index
     @page_id = "concepts"
-    @concepts = Concept.all
+    
+    if !params[:root].nil?
+      root = Concept.find( :first, :conditions => { :name => params[:root] })
+      @concepts = root.pobierz_dzieci
+    else 
+      if !params[:root_not_like].nil?
+        @concepts = Concept.all
+        root = Concept.find( :first, :conditions => { :name => params[:root_not_like] })
+        @concepts.delete_if { |k| k.is_child_of?(root) }
+      else
+        @concepts = Concept.all
+      end
+    end
+
 
     respond_to do |format|
       format.html # index.html.erb

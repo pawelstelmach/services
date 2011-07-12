@@ -9,9 +9,13 @@
     <%= yield(:head) %>
   </head>
       <body id="<%= @page_id %>">
-    	<div id="user_data">
-    	Zalogowany jako: user (<%= link_to "wyloguj" %>)
-   	</div>
+     <div id="user_data">
+    	<% if current_user %>
+		Użytkownik: <%= link_to current_user.username, account_path %> (<%= link_to "Wyloguj", logout_path %>)
+   		<% else %>
+		<%= link_to "Rejestracja", register_path %> <%= link_to "Logowanie", login_path %>
+		<% end %>
+	</div>
 	<div id="logo">	
        <%= link_to image_tag("/images/logo.jpg"), home_path %>
 	</div>

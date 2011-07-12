@@ -1,0 +1,47 @@
+en:
+  formtastic:
+    titles:
+      experiment_details: "Dane kompozycji"
+    labels:
+      experiment:
+        name: "Nazwa"
+        proces: "SLA"
+        max_kandydatow: "Maksymalna liczba wersji usług"
+        iteracji_planow_sasiednich: 'Liczba poszukiwanych planów sąsiednich'
+        iteracji_alg_h: 'Liczba powtórzeń kroku'
+        waga_cost: 'Waga kosztu'
+        waga_time: 'Waga czasu'
+        waga_availability: 'Waga dostępności'
+        waga_succesful: 'Waga reputacji'
+        ograniczenie_cost: 'Koszt'
+        ograniczenie_time: 'Czas'
+        ograniczenie_availability: 'Dostępność'
+        ograniczenie_succesful: 'Reputacja'
+        podobienstwo: 'Stopień podobieństwa'
+#        edit:
+#          name: "Zmień nazwę"
+    hints:
+      experiment:
+        proces: 'np. soa.xml'
+        max_kandydatow: "Maksymalna liczba usług przekazywana jako kandydaci do realizacji pojedynczego zadania procesu złożonego."
+        iteracji_planow_sasiednich: "Maksymalna liczba iteracji algorytmu heurystycznego poszukującego planów sąsiednich do aktualnego planu wykonania usługi złożonej"
+        iteracji_alg_h: "Parametr umożliwiający uśrednienie kompozycji, jeśli w algorytmach narzędzia wykorzystywana jest losowość"
+        podobienstwo: "Jest to dopuszczalny (minimalny) stopień podobieństwa pomiędzy konceptami wymagań"
+    actions:
+      create: "Stwórz {{model}}"
+      update: "Zapisz zmiany"
+      
+  authlogic:
+    error_messages:
+      login_blank: "Nie podano nazwy użytkownika"
+      login_not_found: "Nie znaleziono użytkownika"
+      login_invalid: "Nieprawidłowa nazwa użytkownika"
+      consecutive_failed_logins_limit_exceeded: "Przekroczono dopuszczalną liczbę prób logowania"
+      email_invalid: "Nieprawidłowy adres e-mail"
+      password_blank: "Nie podano hasła"
+      password_invalid: "Nieprawidłowe hasło"
+      not_active: "Konto użytkownika nie jest aktywne"
+      not_confirmed: "Dane konta użytkownika nie zostały potwierdzone"
+      not_approved: "Konto użytkownika nie zostało zaakceptowane"
+      no_authentication_details: "Nie podano nazwy użytkownika i hasła"
+

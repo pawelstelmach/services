@@ -1,5 +1,8 @@
 class ServicesController < ApplicationController
-	
+  before_filter(:only => [:index, :show, :new, :create, :edit, :update, :destroy]) do |controller|
+   controller.send(:require_user) unless controller.request.format.xml?
+  end
+
   def parse_csv
 		Service.delete_all
 		params[:csv].each_line do |line|
@@ -316,8 +319,16 @@ class ServicesController < ApplicationController
   # GET /services.xml
   def index
     @page_id = "services"
-    @services = Service.find(:all, :limit => 100)
-
+    if !params[:service_class].nil?
+      @services = Service.find( :all, :conditions => { :service_class => params[:service_class] })
+    else 
+      if !params[:service_class_not_like].nil?
+        @services = Service.find( :all, :conditions => [ "service_class != ?", params[:service_class_not_like] ])
+      else
+        @services = Service.find(:all, :limit => 100)
+      end
+    end
+     
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @services }

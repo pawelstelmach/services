@@ -1,0 +1,14 @@
+<% title "SSW Composition - Login" %>
+
+<% form_for @user_session do |f| %>
+  <%= f.error_messages %>
+  <div class="fieldset_left_narrow" style="text-align:right;">
+    <p><%= f.label 'Nazwa użytkownika:' %></p>
+	<p><%= f.label 'Hasło:' %></p>
+  </div>
+  <div class="fieldset_right_narrow" style="text-align:left;">
+	<p><%= f.text_field :username %></p>
+    <p><%= f.password_field :password %></p>
+  </div>
+  <p style="padding-left:50.5%"><%= f.submit "Zaloguj" %></p>
+<% end %>

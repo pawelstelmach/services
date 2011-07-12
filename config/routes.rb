@@ -25,7 +25,12 @@ ActionController::Routing::Routes.draw do |map|
     :plugin_math_services => :get
 	}
 
-
+  map.resources :users
+  map.resources :user_sessions
+  map.login "login", :controller => "user_sessions", :action => "new"
+  map.logout "logout", :controller => "user_sessions", :action => "destroy"
+  map.account "account", :controller => "users", :action => "edit"
+  map.register "register", :controller => "users", :action => "new"
 
   map.experiments '/concepts/experiment/:id/:name/:type', :controller => 'concepts', :action => 'experiment' #tymczasowe
   map.experiments '/services/experiment/:id/:name/:type', :controller => 'services', :action => 'experiment' #tymczasowe
@@ -64,9 +69,9 @@ ActionController::Routing::Routes.draw do |map|
   #   end
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
-  # map.root :controller => "welcome"
+  #map.root :controller => "welcome"
 
-	# map.root :controller => "services", :action => "index"
+	map.root :controller => "services", :action => "index"
 
   # See how all your routes lay out with "rake routes"
 

@@ -1,0 +1,17 @@
+digraph models_diagram {
+	graph[overlap=false, splines=true]
+	"Concept" [shape=Mrecord, label="{Concept|name :string\lmeta_in :text\lmeta_out :text\lcreated_at :datetime\lupdated_at :datetime\lrouting_table :text\l}"]
+	"ConceptEdge" [shape=Mrecord, label="{ConceptEdge|length :float\lcreated_at :datetime\lupdated_at :datetime\l}"]
+	"Route" [shape=record, label="{Route|}"]
+	"Service" [shape=Mrecord, label="{Service|name :string\ldescription :text\linput :string\loutput :string\lcreated_at :datetime\lupdated_at :datetime\lcost :integer\lresponse_time :integer\lavailability :float\lsuccesful :float\lreputation :float\lfrequency :float\lservice_class :string\l}"]
+	"User" [shape=Mrecord, label="{User|username :string\lemail :string\lcrypted_password :string\lpassword_salt :string\lpersistence_token :string\lsingle_access_token :string\lperishable_token :string\llast_request_at :datetime\lcurrent_login_at :datetime\llast_login_at :datetime\lcurrent_login_ip :string\llast_login_ip :string\lcreated_at :datetime\lupdated_at :datetime\l}"]
+	"UserSession" [shape=record, label="{UserSession|}"]
+	"Concept" -> "ConceptEdge" [label="outgoing_edges", arrowtail=crow, arrowhead=dot, dir=both]
+	"Concept" -> "ConceptEdge" [label="incoming_edges", arrowtail=crow, arrowhead=dot, dir=both]
+	"Concept" -> "Concept" [label="outgoing_nodes", arrowtail=crow, arrowhead=crow, dir=both]
+	"Concept" -> "Concept" [label="incoming_nodes", arrowtail=crow, arrowhead=crow, dir=both]
+	"User" -> "Sla" [arrowtail=crow, arrowhead=dot, dir=both]
+	"User" -> "Experiment" [arrowtail=crow, arrowhead=dot, dir=both]
+	"User" -> "Parameter" [arrowtail=crow, arrowhead=dot, dir=both]
+	"Authlogic::Session::Base" -> "UserSession" [label="", arrowhead="none", arrowtail="onormal"]
+}
